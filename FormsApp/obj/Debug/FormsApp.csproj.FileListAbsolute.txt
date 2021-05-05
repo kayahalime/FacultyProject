@@ -1,0 +1,9 @@
+C:\Users\kayah\source\repos\FacultyProject\FormsApp\bin\Debug\FormsApp.exe.config
+C:\Users\kayah\source\repos\FacultyProject\FormsApp\bin\Debug\FormsApp.exe
+C:\Users\kayah\source\repos\FacultyProject\FormsApp\bin\Debug\FormsApp.pdb
+C:\Users\kayah\source\repos\FacultyProject\FormsApp\obj\Debug\FormsApp.csprojAssemblyReference.cache
+C:\Users\kayah\source\repos\FacultyProject\FormsApp\obj\Debug\FormsApp.Properties.Resources.resources
+C:\Users\kayah\source\repos\FacultyProject\FormsApp\obj\Debug\FormsApp.csproj.GenerateResource.cache
+C:\Users\kayah\source\repos\FacultyProject\FormsApp\obj\Debug\FormsApp.csproj.CoreCompileInputs.cache
+C:\Users\kayah\source\repos\FacultyProject\FormsApp\obj\Debug\FormsApp.exe
+C:\Users\kayah\source\repos\FacultyProject\FormsApp\obj\Debug\FormsApp.pdb
