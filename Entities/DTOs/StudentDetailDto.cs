@@ -12,5 +12,5 @@ namespace Entities.DTOs
         public string DepartmentName { get; set; }
         public string Status { get; set; }
         public float StudentAverage { get; set; }
-    }
+    } 
 }

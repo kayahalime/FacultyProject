@@ -13,5 +13,5 @@ namespace Entities.DTOs
         public string LecturerLastName { get; set; }
         public string Classroom { get; set; }
         public int CourseCredit { get; set; }
-    }
+    } 
 }

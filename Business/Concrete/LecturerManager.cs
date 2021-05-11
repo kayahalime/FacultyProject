@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constans;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -13,18 +15,25 @@ namespace Business.Concrete
     public class LecturerManager : ILecturerService
     {
         ILecturerDal _lecturerDal;
+        IDepartmentService _departmentService;
 
-        public LecturerManager(ILecturerDal lecturerDal)
+        public LecturerManager(ILecturerDal lecturerDal, IDepartmentService departmentService)
         {
             _lecturerDal = lecturerDal;
-      
+            _departmentService = departmentService;
 
         }
+        [ValidationAspect(typeof(LecturerValidator))]
         public IResult Add(Lecturer lecturer)
         { 
-            Console.WriteLine("ekleme fonksiyonuna girildi");
+          
 
-           
+            IResult result = BusinessRules.Run(CheckRegisterNo(lecturer.RegisterNo,lecturer.DepartmentId));
+
+            if (result != null)
+            {
+                return result;
+            }
 
             _lecturerDal.Add(lecturer);
             return new SuccessResult(Messages.Added);
@@ -52,7 +61,36 @@ namespace Business.Concrete
             _lecturerDal.Update(lecturer);
             return new SuccessResult(Messages.Updated);
         }
-        
+
+        //burada da ilk olarak bölüm kodu tablosunun içine girdim parametreyle gelen id'yi çektim
+        //ardından sicil no value ile başlayıp başlamadığı durumunu kontrol ettim.
+        private IResult CheckRegisterNo(string registerNo,int departmentId)
+        {
+           
+            var result = _departmentService.GetAll();
+            foreach (var item in result.Data)
+            {
+                
+
+                if (departmentId ==item.DepartmentId)
+                {
+                 
+
+                    if (registerNo.StartsWith(item.Value)==false)
+                  {
+
+                       
+                       return new ErrorResult(Messages.LecturerRegisterNo);  
+                     
+                  }
+                  
+                }
+               
+            }
+           return new SuccessResult();
+
+        }
+
 
     }
 }

@@ -11,6 +11,7 @@ namespace Entities.Concrete
         public int DepartmentInformationId { get; set; }
         public int DepartmentId { get; set; }
         public int LecturerId { get; set; }
+        public int StudentScoreId { get; set; }
         public int StudentId { get; set; }
         public string StudentNo { get; set; }
         public string Status { get; set; }

@@ -10,6 +10,7 @@ namespace Entities.Concrete
     {
         public int StudentScoreId { get; set; }
         public int StudentId { get; set; }
+        public int DepartmentInformationId { get; set; }
         public int LessonId { get; set; }
         public int FirstExam { get; set; }
         public int SecondExam { get; set; }

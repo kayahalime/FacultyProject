@@ -34,6 +34,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<StudentScoreManager>().As<IStudentScoreService>().SingleInstance();
             builder.RegisterType<EfStudentScoreDal>().As<IStudentScoreDal>().SingleInstance();
 
+
+
             builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
             builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
 
