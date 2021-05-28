@@ -1,14 +1,12 @@
 ﻿CREATE TABLE [dbo].[DepartmentInformations] (
     [DepartmentInformationId] INT          IDENTITY (1, 1) NOT NULL,
     [DepartmentId]            INT          NOT NULL,
-    [LecturerId]              INT          NOT NULL,
     [StudentId]               INT          NOT NULL,
     [StudentNo]               VARCHAR (50) NOT NULL,
     [Status]                  VARCHAR (50) NOT NULL,
     [StudentScoreId]          INT          NOT NULL,
     PRIMARY KEY CLUSTERED ([DepartmentInformationId] ASC),
     CONSTRAINT [FK_DepartmentInformations_Departments] FOREIGN KEY ([DepartmentId]) REFERENCES [dbo].[Departments] ([DepartmentId]),
-    CONSTRAINT [FK_DepartmentInformations_Lecturers] FOREIGN KEY ([LecturerId]) REFERENCES [dbo].[Lecturers] ([LecturerId]),
     CONSTRAINT [FK_DepartmentInformations_Students] FOREIGN KEY ([StudentId]) REFERENCES [dbo].[Students] ([StudentId]),
     CONSTRAINT [FK_DepartmentInformations_StudentScores] FOREIGN KEY ([StudentScoreId]) REFERENCES [dbo].[StudentScores] ([StudentScoreId])
 );
@@ -27,7 +25,8 @@ CREATE TABLE [dbo].[Lecturers] (
     [LecturerLastName]  VARCHAR (50) NOT NULL,
     [RegisterNo]        VARCHAR (50) NOT NULL,
     [DepartmentId]      INT          NOT NULL,
-    PRIMARY KEY CLUSTERED ([LecturerId] ASC)
+    PRIMARY KEY CLUSTERED ([LecturerId] ASC),
+	CONSTRAINT [FK_Lecturers_Departments] FOREIGN KEY ([DepartmentId]) REFERENCES [dbo].[Departments] ([DepartmentId])
 );
 CREATE TABLE [dbo].[Lessons] (
     [LessonId]     INT          IDENTITY (1, 1) NOT NULL,
